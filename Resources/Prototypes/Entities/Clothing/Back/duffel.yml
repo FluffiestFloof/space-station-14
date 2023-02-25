@@ -14,14 +14,11 @@
     slots:
     - back
   - type: Storage
-    capacity: 120
+    capacity: 100
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
         ents: []
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 0.9
   - type: UserInterface
     interfaces:
     - key: enum.StorageUiKey.Key
@@ -83,7 +80,7 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/chemistry.rsi
-    
+
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelVirology

@@ -17,7 +17,7 @@
   id: ClothingBeltStorageBase
   components:
   - type: Storage
-    capacity: 40
+    capacity: 50
     equipSound:
       path: /Audio/Items/belt_equip.ogg
   - type: ContainerContainer

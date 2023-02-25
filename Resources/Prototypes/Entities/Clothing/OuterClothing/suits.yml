@@ -8,6 +8,9 @@
     sprite: Clothing/OuterClothing/Suits/bombsuit.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/bombsuit.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 0.5
   - type: Armor #explosion damage ignores "normal" armor, see ExplosionResistance.
     modifiers:
       coefficients:
@@ -16,7 +19,7 @@
         Piercing: 0.9
         Heat: 0.75
   - type: ExplosionResistance
-    damageCoefficient: 0.65
+    damageCoefficient: 0.25
   - type: GroupExamine
 
 - type: entity
@@ -30,8 +33,8 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/emergency.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 0.5
-    sprintModifier: 0.5
+    walkModifier: 1
+    sprintModifier: 0.9
   - type: TemperatureProtection
     coefficient: 0.5
   - type: ToggleableClothing
@@ -53,11 +56,11 @@
   - type: Armor
     modifiers:
       coefficients:
-        Slash: 0.9
-        Heat: 0.5
+        Slash: 0.8
+        Heat: 0.2
   - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.7
+    walkModifier: 1
+    sprintModifier: 0.8
   - type: TemperatureProtection
     coefficient: 0.01
   - type: GroupExamine
@@ -70,6 +73,9 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Suits/rad.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 0.8
   - type: Armor
     modifiers:
       coefficients:
@@ -149,8 +155,8 @@
     modifiers:
       coefficients:
         Slash: 0.9
-        Heat: 0.35
+        Heat: 0.1
   - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.75
+    walkModifier: 1
+    sprintModifier: 0.8
   - type: GroupExamine

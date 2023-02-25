@@ -59,7 +59,7 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/chemistry.rsi
-    
+
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelVirology

@@ -399,9 +399,9 @@
   - type: Clothing
     sprite: Clothing/Belt/bandolier.rsi
   - type: Item
-    size: 60
+    size: 50
   - type: Storage
-    capacity: 60
+    capacity: 50
     whitelist:
       tags:
         - ShellShotgun
@@ -429,7 +429,7 @@
   - type: Clothing
     sprite: Clothing/Belt/holster.rsi
   - type: Storage
-    capacity: 20
+    capacity: 30
 
 - type: entity
   parent: ClothingBeltStorageBase
