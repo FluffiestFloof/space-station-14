@@ -41,4 +41,10 @@ public sealed partial class BatteryWeaponFireMode
     /// </summary>
     [DataField("fireCost")]
     public float FireCost = 100;
+
+    /// <summary>
+    /// The name of the selected firemode
+    /// </summary>
+    [DataField("name")]
+    public string Name = string.Empty;
 }
