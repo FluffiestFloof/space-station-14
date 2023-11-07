@@ -20,7 +20,7 @@
 			"name": "mode-lethal"
 		},
         {
-			"name": "mode-ion"
+			"name": "mode-stun"
 		},
 		{
 			"name": "mag-unshaded-0",
@@ -55,15 +55,11 @@
 			"directions": 4
 		},
         {
-			"name": "special-inhand-left",
+			"name": "stun-inhand-left",
 			"directions": 4
 		},
 		{
-			"name": "special-inhand-right",
-			"directions": 4
-		},
-		{
-			"name": "equipped-BELT",
+			"name": "stun-inhand-right",
 			"directions": 4
 		}
 	]

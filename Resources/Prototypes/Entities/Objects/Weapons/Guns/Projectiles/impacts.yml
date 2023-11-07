@@ -72,7 +72,6 @@
     tags:
     - HideContextMenu
 
-
 - type: entity
   id: BulletImpactEffectKinetic
   noSpawn: true

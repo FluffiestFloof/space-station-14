@@ -47,4 +47,10 @@ public sealed partial class BatteryWeaponFireMode
     /// </summary>
     [DataField("name")]
     public string Name = string.Empty;
+
+    /// <summary>
+    /// What RsiState we use for that firemode if it needs to change.
+    /// </summary>
+    [DataField("state")]
+    public string State = string.Empty;
 }

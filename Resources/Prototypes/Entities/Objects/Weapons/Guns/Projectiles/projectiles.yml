@@ -267,9 +267,50 @@
     impactEffect: BulletImpactEffectRedDisabler
     damage:
       types:
-        Heat: 17
+        Heat: 20
     soundHit:
-      path: "/Audio/Weapons/tap.ogg"
+      collection: MeatLaserImpact
+    soundForce: true
+
+- type: entity
+  name : ion bolt
+  id: BulletEnergyIon
+  parent: BaseBullet
+  noSpawn: true
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+      color: blue
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Opaque
+      fly-by: *flybyfixture
+  - type: Ammo
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 5
+    soundHit:
+      collection: MeatLaserImpact
     soundForce: true
 
 - type: entity

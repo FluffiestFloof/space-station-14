@@ -293,7 +293,7 @@
       - id: BoxEncryptionKeySecurity
       - id: HoloprojectorSecurity
       - id: BookSecretDocuments
-      - id: WeaponMultiphaseEnergyGun
+      - id: WeaponEnergyGunMultiphase
 
 - type: entity
   id: LockerHeadOfSecurityFilled
@@ -324,4 +324,4 @@
       - id: BoxEncryptionKeySecurity
       - id: HoloprojectorSecurity
       - id: BookSecretDocuments
-      - id: WeaponMultiphaseEnergyGun
+      - id: WeaponEnergyGunMultiphase

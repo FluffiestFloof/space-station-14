@@ -4,16 +4,19 @@ using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
+using Content.Shared.Item;
+using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Prototypes;
 using System.Linq;
-
 namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed class BatteryWeaponFireModesSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedItemSystem _item = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -125,6 +128,32 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
             {
                 _popupSystem.PopupEntity(Loc.GetString("gun-set-fire-mode", ("mode", component.CurrentFireMode.Name != string.Empty ? component.CurrentFireMode.Name : prototype.Name)), uid, user.Value);
             }
+
+            if (TryComp<AppearanceComponent>(uid, out var appearance) &&
+                TryComp<ItemComponent>(uid, out var item))
+            {
+                if (component.CurrentFireMode.State == string.Empty)
+                    return;
+
+                _item.SetHeldPrefix(uid, fireMode.State, item);
+                switch (fireMode.State)
+                {
+                    case "disabler":
+                        UpdateAppearance(uid, EnergyGunFireModeState.Disabler);
+                        break;
+                    case "lethal":
+                        UpdateAppearance(uid, EnergyGunFireModeState.Lethal);
+                        break;
+                    case "special":
+                        UpdateAppearance(uid, EnergyGunFireModeState.Special);
+                        break;
+                }
+            }
         }
+    }
+
+    private void UpdateAppearance(EntityUid uid, EnergyGunFireModeState state)
+    {
+        _appearance.SetData(uid, EnergyGunFireModeVisuals.State, state);
     }
 }

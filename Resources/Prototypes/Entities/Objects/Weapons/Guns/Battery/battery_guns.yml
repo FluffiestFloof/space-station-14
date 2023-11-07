@@ -402,9 +402,67 @@
     price: 750
 
 - type: entity
+  name: energy gun
+  parent: BaseWeaponBattery
+  id: WeaponEnergyGun
+  description: A basic hybrid energy gun with two settings: disable and kill.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/energygun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode_disable
+      map: [ "enum.EnergyGunFireModeVisuals.Layer" ]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/energygun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser2.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 100
+      name: disable
+      state: disabler
+    - proto: BulletEnergyLaser
+      fireCost: 200
+      name: kill
+      state: lethal
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        enum.EnergyGunFireModeVisuals.Layer:
+          Disabler: { state: mode_disable }
+          Lethal: { state: mode_lethal }
+          Special: { state: mode_stun }
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
+  - type: StaticPrice
+    price: 750
+
+- type: entity
   name: x-01 multiphase energy gun
   parent: BaseWeaponBatterySmall
-  id: WeaponMultiphaseEnergyGun
+  id: WeaponEnergyGunMultiphase
   description: This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
   components:
   - type: Sprite
@@ -412,8 +470,9 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mode-kill # Todo: have the mode and magazine change according to firemode
-    - state: mag-kill-unshaded-4
+    - state: mode_disable
+      map: [ "enum.EnergyGunFireModeVisuals.Layer" ]
+    - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
@@ -434,14 +493,27 @@
     - proto: BulletDisabler
       fireCost: 100
       name: disable
+      state: disabler
     - proto: BulletEnergyLaser
       fireCost: 200
       name: kill
+      state: lethal
+    # - proto: BulletIonLaser
+    #   fireCost: 500
+    #   name: ion
+    #   state: special
   - type: MagazineVisuals
     magState: mag
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        enum.EnergyGunFireModeVisuals.Layer:
+          Disabler: { state: mode_disable }
+          Lethal: { state: mode_lethal }
+          Special: { state: mode_ion }
   - type: Tag
     tags:
     - HighRiskItem
